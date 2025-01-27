@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/">Strona główna</button>
+  <button mat-button routerLink="/placowki">Placówki</button>
+
+  <ng-container *ngIf="isLoggedIn">
+    <!-- <button mat-button routerLink="/pacjenci">Pacjenci</button> -->
+    <button mat-button *ngIf="isAdmin()" routerLink="/uzytkownicy">Użytkownicy</button>
+  </ng-container>
+
+  <span class="spacer"></span>
+  <div class="user-actions">
+    <mat-icon *ngIf="isLoggedIn">account_circle</mat-icon>
+    <span *ngIf="isLoggedIn">{{ getName() }}</span>
+    <button mat-flat-button (click)="login()">
+      {{ !isLoggedIn ? 'Zaloguj się' : 'Wyloguj się' }}
+    </button>
+  </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

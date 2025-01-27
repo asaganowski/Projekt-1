@@ -1,0 +1,8 @@
+<app-list-view [title]="'Lista użytkowników'">
+    <app-data-grid
+        [changedColumnHeaderNames]="changedColumnHeaderNames"
+        [data$]="data$!"
+        [displayedColumns]="displayedColumns"
+        [rowButtonAction]="rowButtonAction"
+    ></app-data-grid>
+</app-list-view>

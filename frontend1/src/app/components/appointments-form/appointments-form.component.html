@@ -1,0 +1,40 @@
+<app-loading></app-loading>
+<form [formGroup]="appointmentForm" class="appointment-modal" *ngIf="placowki$ | async as placowki">
+  <div class="form-group">
+    <label for="dataWizyty">Data wizyty:</label>
+    <input id="dataWizyty" type="datetime-local" formControlName="data_wizyty" />
+    <div class="error-message" *ngIf="appointmentForm.get('data_wizyty')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="placowka">Placówka:</label>
+    <select id="placowka" formControlName="id_placowki">
+      <option *ngFor="let placowka of placowki" [value]="placowka.value">
+        {{ placowka.descr }}
+      </option>
+    </select>
+    <div class="error-message" *ngIf="appointmentForm.get('id_placowki')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="id_specjalisty">Specjalista:</label>
+    <select id="id_specjalisty" formControlName="id_specjalisty">
+      <option value="">Wybierz</option>
+      <option *ngFor="let specjalista of specjalisci" [value]="specjalista.value">
+        {{ specjalista.descr }}
+      </option>
+    </select>
+    <div class="error-message" *ngIf="appointmentForm.get('id_specjalisty')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button mat-raised-button color="primary" (click)="save()">Zapisz</button>
+    <button mat-raised-button color="warn" type="button" (click)="close()">Anuluj</button>
+  </div>
+</form>

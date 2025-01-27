@@ -1,0 +1,15 @@
+<div class="d-flex w-100 justify-content-center align-items-center h-100" *ngIf="isAdmin || !isLoggedIn">
+    <h2>Witamy w klinice!</h2>
+</div>
+
+<ng-container *ngIf="isPatient || isSpecialist">
+    <app-list-view [title]="'Twoje wizyty'">
+        <app-data-grid
+            [changedColumnHeaderNames]="changedColumnHeaderNames"
+            [data$]="data$!"
+            [displayedColumns]="displayedColumns"
+            [rowButtonAction]="isPatient ? rowButtonAction : [rowButtonAction[2]]"
+        ></app-data-grid>
+    </app-list-view>
+</ng-container>
+

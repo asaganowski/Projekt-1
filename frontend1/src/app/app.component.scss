@@ -1,0 +1,21 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+  

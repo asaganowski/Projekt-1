@@ -1,0 +1,54 @@
+
+:host {
+    .spinner {
+      transform: translateY(calc(50% - 50px));
+    }
+
+    &.full-screen {
+        .spinner {
+            position: fixed;
+            top: calc(50vh - 50px)
+        }
+    }
+}
+
+:host-context(.mat-stepper-vertical) {
+    &.full-screen {
+      .spinner-container {
+        position: fixed;
+      }
+    }
+}
+
+.spinner-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.32);
+    z-index: 20000;
+}
+
+:host-context(loading-table-indicator) {
+  .spinner-container {
+    position: absolute;
+  }
+}
+
+.init-message{
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    color: black;
+}
+
+:host.on-dialog-screen {
+  .spinner-container {
+    position  : relative;
+    background: inherit;
+  }
+}

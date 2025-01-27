@@ -1,0 +1,8 @@
+<app-list-view [title]="'Lista placówek'">
+    <app-data-grid
+        [changedColumnHeaderNames]="changedColumnHeaderNames"
+        [data$]="data$!"
+        [displayedColumns]="displayedColumns"
+        [rowButtonAction]="isAdmin ? rowButtonAction : []"
+    ></app-data-grid>
+</app-list-view>

@@ -1,0 +1,78 @@
+<app-loading></app-loading>
+<form [formGroup]="formGroupUser" class="users-modal" *ngIf="placowki$ | async as placowki">
+  <div class="form-group">
+    <label for="login">Login:</label>
+    <input matInput id="login" type="text" formControlName="login" />
+    <div class="error-message" *ngIf="formGroupUser.get('login')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="haslo">Hasło:</label>
+    <input matInput id="haslo" type="password" formControlName="haslo" />
+    <div class="error-message" *ngIf="formGroupUser.get('haslo')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="imie">Imię:</label>
+    <input matInput id="imie" type="text" formControlName="imie" />
+    <div class="error-message" *ngIf="formGroupUser.get('imie')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="nazwisko">Nazwisko:</label>
+    <input matInput id="nazwisko" type="text" formControlName="nazwisko" />
+    <div class="error-message" *ngIf="formGroupUser.get('nazwisko')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="rola">Rola:</label>
+    <select id="rola" formControlName="rola">
+        <option *ngFor="let rola of role" [value]="rola.value">
+          {{ rola.descr }}
+        </option>
+      </select>
+    <div class="error-message" *ngIf="formGroupUser.get('rola')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+  <!-- <ng-container *ngIf="rola.value == 'SPECJALISTA'"> -->
+
+    <div class="form-group">
+        <label for="specjalizacja">Specjalizacja:</label>
+        <select id="specjalizacja" formControlName="specjalizacja">
+          <option *ngFor="let specjalizacja of specjalizacje" [value]="specjalizacja.value">
+            {{ specjalizacja.descr }}
+          </option>
+        </select>
+        <div class="error-message" *ngIf="formGroupUser.get('specjalizacja')?.invalid">
+            Pole jest wymagane
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="placowki_id">Placówka:</label>
+        <mat-select id="placowki_id" formControlName="placowki_id" multiple>
+            <mat-option *ngFor="let placowka of placowki" [value]="placowka.value">
+              {{ placowka.descr }}
+            </mat-option>
+          </mat-select>
+        <div class="error-message" *ngIf="formGroupUser.get('placowki_id')?.invalid">
+            Pole jest wymagane
+        </div>
+      </div>
+
+    <!-- </ng-container> -->
+
+  <div class="form-actions">
+    <button mat-raised-button color="primary" (click)="save()" >Zapisz</button>
+    <button mat-raised-button color="warn" type="button" (click)="close()">Anuluj</button>
+  </div>
+</form>

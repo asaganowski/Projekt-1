@@ -1,0 +1,30 @@
+<form [formGroup]="formGroup" class="placowki-modal">
+  <div class="form-group">
+    <label for="nazwa">Nazwa placówki:</label>
+    <input matInput id="nazwa" type="text" formControlName="nazwa" />
+    <div class="error-message" *ngIf="formGroup.get('nazwa')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="adres">Adres placowki:</label>
+    <input matInput id="adres" type="text" formControlName="adres" />
+    <div class="error-message" *ngIf="formGroup.get('adres')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="telefon">Telefon:</label>
+    <input matInput id="telefon" type="text" formControlName="telefon" />
+    <div class="error-message" *ngIf="formGroup.get('telefon')?.invalid">
+      Pole jest wymagane
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button mat-raised-button color="primary" [disabled]="formGroup.invalid" (click)="save()" >Zapisz</button>
+    <button mat-raised-button color="warn" type="button" (click)="close()">Anuluj</button>
+  </div>
+</form>

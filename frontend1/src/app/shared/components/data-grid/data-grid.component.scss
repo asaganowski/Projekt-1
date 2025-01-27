@@ -1,0 +1,57 @@
+.row-button-actions {
+    
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 1rem;
+
+    button:disabled {
+      background-color: gray !important;
+      border-color: gray !important;
+    }
+
+    button{
+        color:black;
+    }
+
+    & + .paginator-driver {
+        width           : auto;
+    }
+
+    &__icon {
+      margin-left: 0px !important;
+      margin-right: 4px !important;
+    }
+
+    .mat-icon {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    .button-yellow {
+      .mat-mdc-button-base.mdc-button {
+        &.mat-primary {
+          background-color: rgb(246, 235, 30);
+          border-color: rgb(246, 235, 30);
+        }
+      }
+    }
+    .button-red {
+      .mat-mdc-button-base.mdc-button {
+        &.mat-primary {
+          background-color: red;
+          border-color: red;
+        }
+      }
+    }
+    
+    .button-green {
+      .mat-mdc-button-base.mdc-button {
+        &.mat-primary {
+          background-color: greenyellow;
+          border-color: greenyellow;
+        }
+      }
+    }
+  }
